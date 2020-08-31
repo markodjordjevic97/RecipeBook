@@ -1,0 +1,21 @@
+<mat-toolbar class="header">
+    <button mat-icon-button class="header__icon" aria-label="Example icon-button with menu icon" 
+    [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions] = "{exact: true}">
+        <span>Home</span>
+    </button>
+    <button mat-icon-button class="header__icon header__icon--m" aria-label="Example icon-button with menu icon" 
+    [routerLink]="['/recipes']" routerLinkActive="active">
+        <span>{{recipe | shorten:10}}</span>
+    </button>
+    <button mat-icon-button class="header__icon header__icon--m" aria-label="Example icon-button with menu icon"
+    [routerLink]="['/shopping-list']" routerLinkActive="active">
+        <span>Shopping List</span>
+    </button>
+    <span class="header__spacer"></span>
+    <button mat-icon-button class="header__icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="header__icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>

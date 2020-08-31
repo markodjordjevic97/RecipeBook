@@ -1,0 +1,31 @@
+.hero {
+    box-shadow: 0 1rem 4rem rgba(0,0,0,.8);
+}
+.main {
+    width:  100%;
+    min-height: 85vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(50rem,1fr));
+    gap: 1rem;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    font-size: 1.8rem;
+    &__left {
+        h1 {text-align: center; margin-bottom: 2rem; color: #8E0E00;}
+        @media only screen and (max-width: 31.25em){
+            h1{margin-bottom: 7rem;}
+        }
+    }
+    &__right{
+        align-self: center;
+        margin-top: -7rem;
+        width: 80%;
+        @media only screen and (max-width: 31.25em){
+            margin: 5rem 0;
+        }
+        &-card {
+            margin-top: .8rem;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+
+
+.header {
+    background-image: linear-gradient(to right bottom,var(--color-primary-light), var(--color-primary));
+    color: var(--color-text);
+    border-radius: .2rem;
+    &__icon {
+        font-size: 2rem;
+        width: max-content;
+        border-radius: 0;
+        padding: 0 1.5rem;
+        &:not(:last-child) {
+            margin-right: .8rem;
+        }
+        &--m {
+            margin-left: 2rem;
+        }
+    }
+    &__spacer {
+        flex: 1 1 auto;
+    }
+}

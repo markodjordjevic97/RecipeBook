@@ -1,0 +1,15 @@
+.ingredient {
+    list-style: none;
+}
+.cont {
+    font-size: 1.6rem;
+}
+.mat-card>.mat-card-actions:last-child {
+    display: flex;
+}
+mat-card-title, .ingredient, p{
+    @media only screen and (max-width: 23.4375em){
+        font-size: 2.7rem;
+    }
+}
+

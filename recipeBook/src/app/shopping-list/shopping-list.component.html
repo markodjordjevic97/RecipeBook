@@ -1,0 +1,15 @@
+
+<main class="main hero">
+    <div class="main__left">
+        <h1>Please enter new ingredient</h1>
+        <app-shopping-list-edit></app-shopping-list-edit>
+    </div>
+    <div class="main__right">
+        <mat-card class="main__right-card" 
+        *ngFor="let ingredient of ingredients; let ind = index"
+        (click)="onEditItem(ind)"
+        style="cursor: pointer;">
+        {{ingredient.name}} - ({{ingredient.amount}})
+    </mat-card>
+    </div>
+</main>
