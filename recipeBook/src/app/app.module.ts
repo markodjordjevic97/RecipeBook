@@ -25,13 +25,13 @@ import {MatInputModule} from '@angular/material/input';
 // Angular services
 import {ShoppingService} from './shopping-list/shopping.service'
 import {RecipeServicesService} from './recipe/recipe-services.service';
-<<<<<<< HEAD
-import { GalleryService } from './hero-page/gallery.service';
-=======
-import {Pipeline} from "./header/shorthen.pipe";
-import { SearchTextPipe } from './recipe/recipe-list/search-text.pipe'
 
->>>>>>> 9495147dabab953871bec46f4c13a4b0008463af
+import { GalleryService } from './hero-page/gallery.service';
+
+import {Pipeline} from "./header/shorthen.pipe";
+import { SearchTextPipe } from './recipe/recipe-list/search-text.pipe';
+
+
 @NgModule({
   declarations: [
     AppComponent,
