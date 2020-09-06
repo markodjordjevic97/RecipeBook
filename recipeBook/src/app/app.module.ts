@@ -61,7 +61,7 @@ import { SearchTextPipe } from './recipe/recipe-list/search-text.pipe';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [ShoppingService,RecipeServicesService,GalleryService],
+  providers: [ShoppingService, RecipeServicesService, GalleryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

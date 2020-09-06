@@ -9,14 +9,15 @@ import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component'
 
 
 const routes: Routes = [
-  {path: '',component: HeroPageComponent},
-  {path: 'recipes',   component: RecipeComponent, children:[
+  {path: '', component: HeroPageComponent},
+  {path: 'recipes', component: RecipeComponent, children: [
     {path: '', component: RecipeStartComponent},
+    {path: 'new', component: RecipeEditComponent},
     {path: ':id', component: RecipeDetailComponent},
-    {path: 'new',component: RecipeEditComponent},
+    {path: ':id/edit',  component: RecipeEditComponent}
+
   ]},
   {path: 'shopping-list', component: ShoppingListComponent},
-  {path: ':id/edit',  component: RecipeEditComponent}
 ];
 
 @NgModule({
