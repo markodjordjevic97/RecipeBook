@@ -3,6 +3,7 @@ import { Recipe } from '../recipe.model';
 import { RecipeServicesService } from '../recipe-services.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import {firebaseService} from "../../shared/firebase.service";
 
 @Component({
   selector: 'app-recipe-list',
@@ -16,7 +17,8 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   datum = new Date();
   constructor(private recipeService: RecipeServicesService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private firebase: firebaseService) {
   }
 
   ngOnInit() {
@@ -27,11 +29,17 @@ export class RecipeListComponent implements OnInit, OnDestroy {
         }
       );
     this.recipes = this.recipeService.getRecipes();
+    this.firebase.fetchData().subscribe();
   }
 
   onNewRecipe() {
     this.router.navigate(['new'], {relativeTo: this.route});
   }
+
+  onSave() {
+    this.firebase.postData();
+  }
+
 
   ngOnDestroy() {
     this.subscription.unsubscribe();

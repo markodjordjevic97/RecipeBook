@@ -1,11 +1,8 @@
 <div class="hack">
-    <button mat-raised-button color="green" (click)="onNewRecipe()">New recipe</button>
-    <label class="search">
-        <input type="text" name="searchText"  class="search__input" placeholder="Search recipe" [(ngModel)]="searchText">
-        <img src="../../../assets/ios-search.svg" class="search__icon" alt="Search" >
-
-    </label>
+  <button mat-raised-button color="green"  class="hack__btn-1" (click)="onNewRecipe()">New recipe</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Save recipes</button>
 </div>
+
 <hr style="margin: 1rem 0;">
 <app-recipe-item
 *ngFor="let recipe of recipes; let i = index"

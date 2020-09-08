@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http';
 // Angular Components
 import { AppComponent } from './app.component';
 import { RecipeComponent } from './recipe/recipe.component';
@@ -27,6 +28,8 @@ import {ShoppingService} from './shopping-list/shopping.service'
 import {RecipeServicesService} from './recipe/recipe-services.service';
 
 import { GalleryService } from './hero-page/gallery.service';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {recipeInterceptService} from './shared/recipe-intercept.service';
 
 
 
@@ -55,9 +58,10 @@ import { GalleryService } from './hero-page/gallery.service';
     MatCardModule,
     MatInputModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [ShoppingService, RecipeServicesService, GalleryService],
+  providers: [ShoppingService, RecipeServicesService, GalleryService, [{provide: HTTP_INTERCEPTORS, useClass: recipeInterceptService, multi: true}]],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,10 @@
 // Variables
 $color-btn: #388e3c;
 .hack {
-    display: flex;
-    align-items: center;
+button:not(:last-child) {
+  margin-right: 1rem;
+}
+
 }
 .mat-green {
     background-color: $color-btn;
@@ -18,7 +20,7 @@ $color-btn: #388e3c;
     border: none;
     outline: none;
     border-radius: .2rem;
-    
+
     font-family: 'Lato', sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
