@@ -11,7 +11,6 @@ export class recipeInterceptService implements  HttpInterceptor{
     const newReq = req.clone({
       headers: new HttpHeaders({recipe: 'recipeArray'})
     });
-    console.log(newReq);
     return next.handle(newReq);
   }
 

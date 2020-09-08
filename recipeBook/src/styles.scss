@@ -14,7 +14,7 @@
     box-sizing: inherit;
 }
 html {
-    box-sizing: border-box; 
+    box-sizing: border-box;
     font-size: 62.5%;
     @media only screen and (max-width: 75em){
         font-size: 56.25%;
@@ -23,12 +23,12 @@ html {
         font-size: 50%;
     }
     @media only screen and (max-width: 48em){
-        font-size: 43.75%;
+        font-size: 44%;
     }
     @media only screen and (max-width: 23.4375em){
-        font-size: 37.5%;
+        font-size: 38%;
     }
-    
+
 }
 body {
     font-family: 'Lato', sans-serif;
@@ -39,7 +39,7 @@ body {
     min-height: 100vh;
     background-color: #eee;
     box-shadow: 0 1rem 4rem rgba(0,0,0,.8);
-    
+
     @media only screen and (max-width: 48em){
         margin: 0;
     }

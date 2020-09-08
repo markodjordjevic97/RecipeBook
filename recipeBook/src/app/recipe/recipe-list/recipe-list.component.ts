@@ -40,7 +40,6 @@ export class RecipeListComponent implements OnInit, OnDestroy {
     this.firebase.postData();
   }
 
-
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

@@ -12,9 +12,12 @@
         <span>Shopping List</span>
     </button>
     <span class="header__spacer"></span>
-    <button mat-icon-button class="header__icon favorite-icon" aria-label="Example icon-button with heart icon">
+
+    <button mat-icon-button class="header__icon favorite-icon" aria-label="Example icon-button with heart icon"
+            (click)="pageLikes()" [disabled]="clicked">
       <mat-icon>favorite</mat-icon>
     </button>
+    <span class="header__icon-likes" *ngIf="counter > 0">{{counter}}</span>
     <button mat-icon-button class="header__icon" aria-label="Example icon-button with share icon">
       <mat-icon>share</mat-icon>
     </button>

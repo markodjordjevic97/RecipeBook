@@ -3,16 +3,19 @@
     display: grid;
     grid-template-rows: 2rem 10vh min-content 40vw repeat(3,min-content);
     grid-template-columns: [sidebar-end full-start] minmax(6rem,1fr) [center-start] repeat(8,[col-start]minmax(min-content,14rem) [col-end]) [center-end] minmax(6rem,1fr) [full-end];
-    
+  @media only screen and (min-width:87.5em){
+    grid-template-rows: 2rem 3vh min-content 40vw repeat(3,min-content);
+    grid-template-columns: [full-start] minmax(5rem,1fr) [center-start] repeat(8,[col-start]minmax(min-content,14rem) [col-end]) [center-end] minmax(6rem,1fr) [full-end];
+  }
     @media only screen and (max-width:87.5em){
-    grid-template-rows: 2rem 9vh min-content 40vw repeat(3,min-content);
+    grid-template-rows: 2rem 7.5vh min-content 40vw repeat(3,min-content);
     grid-template-columns: [full-start] minmax(5rem,1fr) [center-start] repeat(8,[col-start]minmax(min-content,14rem) [col-end]) [center-end] minmax(6rem,1fr) [full-end];
     }
     @media only screen and (max-width:62.75em){
         grid-template-rows: 90vh;
         grid-template-columns: [full-start] minmax(3rem,1fr) [center-start] repeat(8,[col-start]minmax(min-content,14rem) [col-end]) [center-end] minmax(6rem,1fr) [full-end];
         }
-   
+
 }
 .gallery{
     grid-column: full-start / full-end;
@@ -99,15 +102,15 @@
                 &--11{display: block;grid-column: 1 / -1; grid-row: 8/ 10;}
                 &--14{display: block;grid-column: 1 / -1; grid-row: 1 / 8;}
             }
-           
-       
+
+
         // }
         // @media only screen and (max-width:48em){
-            
-            
+
+
         // }
         // @media only screen and (max-width:31.25em){
-      
+
         // }
 
     }

@@ -5,11 +5,13 @@
         <app-shopping-list-edit></app-shopping-list-edit>
     </div>
     <div class="main__right">
-        <mat-card class="main__right-card" 
+        <mat-card class="main__right-card"
         *ngFor="let ingredient of ingredients; let ind = index"
         (click)="onEditItem(ind)"
         style="cursor: pointer;">
         {{ingredient.name}} - ({{ingredient.amount}})
-    </mat-card>
+         </mat-card>
+
+          <button mat-raised-button color="green" class="main__right-btn" (click)="onSave()">Save Shopping List</button>
     </div>
 </main>

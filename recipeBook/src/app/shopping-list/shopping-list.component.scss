@@ -1,3 +1,4 @@
+$color-btn: #388e3c;
 .hero {
     box-shadow: 0 1rem 4rem rgba(0,0,0,.8);
 }
@@ -14,18 +15,31 @@
     &__left {
         h1 {text-align: center; margin-bottom: 2rem; color: #8E0E00;}
         @media only screen and (max-width: 31.25em){
-            h1{margin-bottom: 7rem;}
+            h1{margin-bottom: 7rem; margin: 4rem}
         }
     }
     &__right{
         align-self: center;
         margin-top: -7rem;
         width: 80%;
+      position: relative;
         @media only screen and (max-width: 31.25em){
-            margin: 5rem 0;
+            margin: 15rem 0;
         }
         &-card {
             margin-top: .8rem;
         }
     }
+}
+.mat-green {
+  background-color: $color-btn;
+  color: #ffffff;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  margin-top: 18rem;
+  @media only screen and (max-width: 31.25em){
+    margin: 20rem 0;
+  }
 }
