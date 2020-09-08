@@ -28,8 +28,6 @@ import {RecipeServicesService} from './recipe/recipe-services.service';
 
 import { GalleryService } from './hero-page/gallery.service';
 
-import {Pipeline} from "./header/shorthen.pipe";
-import { SearchTextPipe } from './recipe/recipe-list/search-text.pipe';
 
 
 @NgModule({
@@ -45,9 +43,7 @@ import { SearchTextPipe } from './recipe/recipe-list/search-text.pipe';
     RecipeDetailComponent,
     ShoppingListEditComponent,
     RecipeStartComponent,
-    RecipeEditComponent,
-    Pipeline,
-    SearchTextPipe
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,

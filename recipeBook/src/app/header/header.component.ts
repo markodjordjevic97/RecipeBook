@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Pipeline} from "./shorthen.pipe"
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,7 +7,7 @@ import {Pipeline} from "./shorthen.pipe"
 export class HeaderComponent implements OnInit {
 
   constructor() { }
-  recipe = 'Recipeeeees'
+
   ngOnInit(): void {
   }
 

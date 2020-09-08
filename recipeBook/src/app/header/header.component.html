@@ -1,11 +1,11 @@
 <mat-toolbar class="header">
-    <button mat-icon-button class="header__icon" aria-label="Example icon-button with menu icon" 
+    <button mat-icon-button class="header__icon" aria-label="Example icon-button with menu icon"
     [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions] = "{exact: true}">
         <span>Home</span>
     </button>
-    <button mat-icon-button class="header__icon header__icon--m" aria-label="Example icon-button with menu icon" 
+    <button mat-icon-button class="header__icon header__icon--m" aria-label="Example icon-button with menu icon"
     [routerLink]="['/recipes']" routerLinkActive="active">
-        <span>{{recipe | shorten:10}}</span>
+        <span>Recipe</span>
     </button>
     <button mat-icon-button class="header__icon header__icon--m" aria-label="Example icon-button with menu icon"
     [routerLink]="['/shopping-list']" routerLinkActive="active">
