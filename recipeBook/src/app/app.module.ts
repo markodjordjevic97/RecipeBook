@@ -16,6 +16,7 @@ import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.comp
 import { ShoppingListEditComponent } from './shopping-list/shopping-list-edit/shopping-list-edit.component';
 import { RecipeStartComponent } from './recipe/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component'
+import { AuthComponent } from './auth/auth.component';
 // Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -23,15 +24,14 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
+import {MatMenuModule} from '@angular/material/menu';
+import { NotificationModule } from '@progress/kendo-angular-notification';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 // Angular services
 import {ShoppingService} from './shopping-list/shopping.service'
 import {RecipeServicesService} from './recipe/recipe-services.service';
-
 import { GalleryService } from './hero-page/gallery.service';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import {recipeInterceptService} from './shared/recipe-intercept.service';
-import { NotificationModule } from '@progress/kendo-angular-notification';
-
+import { LoadingSpinerComponent } from './shared/loading-spiner/loading-spiner.component';
 
 
 @NgModule({
@@ -47,7 +47,9 @@ import { NotificationModule } from '@progress/kendo-angular-notification';
     RecipeDetailComponent,
     ShoppingListEditComponent,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    AuthComponent,
+    LoadingSpinerComponent
   ],
   imports: [
     BrowserModule,
@@ -61,9 +63,11 @@ import { NotificationModule } from '@progress/kendo-angular-notification';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    NotificationModule
+    NotificationModule,
+    MatMenuModule,
+    MatProgressSpinnerModule
   ],
-  providers: [ShoppingService, RecipeServicesService, GalleryService, [{provide: HTTP_INTERCEPTORS, useClass: recipeInterceptService, multi: true}]],
+  providers: [ShoppingService, RecipeServicesService, GalleryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,7 +4,10 @@ $color-btn: #388e3c;
 button:not(:last-child) {
   margin-right: 1rem;
 }
-
+.mat-red {
+  background-color: #8E0E00;
+  color: #eee;
+}
 }
 .mat-green {
     background-color: $color-btn;

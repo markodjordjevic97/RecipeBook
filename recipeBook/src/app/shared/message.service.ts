@@ -7,7 +7,7 @@ import {Observable, Subject} from "rxjs";
 
 export class MessageService {
 
-  private shareMessage = new Subject<any>()
+  public shareMessage = new Subject<any>()
 
   sendMessage(message: string) {
     this.shareMessage.next({message: message});

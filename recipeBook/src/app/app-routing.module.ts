@@ -8,6 +8,7 @@ import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.comp
 import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component';
 import {recipeResolverService} from "./shared/recipe-resolver.service";
 import {shoppingListResolverService} from "./shared/shoppingList-resolver.service";
+import {AuthComponent} from "./auth/auth.component";
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
 
   ]},
   {path: 'shopping-list', component: ShoppingListComponent, resolve: {res: shoppingListResolverService}},
+  {path: 'auth', component: AuthComponent}
 ];
 
 @NgModule({

@@ -8,13 +8,27 @@
     padding: 8rem;
     align-items: center;
     margin: 0 auto;
+  background-color: #fff;
     &__full-width {
-        width: 100%; 
+        width: 100%;
     }
     @media only screen and (max-width: 31.25em){
         margin: 0 auto;
+      max-width: 99%;
+      padding: 6rem;
     }
   }
   button:not(:last-child){
       margin-right: 1.5rem;
+    @media only screen and (max-width: 26.875em) {
+      margin-right: .3rem;
+    }
   }
+.mat-red {
+  background-color: #8E0E00;
+  color: #eee;
+}
+.mat-link {
+  background-color: #bd952b;
+  color: #fff;
+}

@@ -3,6 +3,7 @@ import { ShoppingService } from './shopping.service';
 import { Ingredient } from '../shared/ingredient.model';
 import { Subscription } from 'rxjs';
 import {firebaseService} from "../shared/firebase.service";
+import {MessageService} from "../shared/message.service";
 
 @Component({
   selector: 'app-shopping-list',
@@ -15,7 +16,8 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   constructor(private slService: ShoppingService,
-              private firebase: firebaseService) { }
+              private firebase: firebaseService,
+              private messageService: MessageService) { }
 
   ngOnInit() {
     this.ingredients = this.slService.getIngredients();
@@ -34,6 +36,8 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   onSave() {
     this.firebase.postListIngredients();
+    this.messageService.sendMessage('Your ingredients are successfully saved!');
+
   }
 
   ngOnDestroy() {

@@ -1,5 +1,23 @@
 <mat-toolbar class="header">
-    <button mat-icon-button class="header__icon" aria-label="Example icon-button with menu icon"
+  <button mat-icon-button [matMenuTriggerFor]="menu" color="myColor" [ngClass]="buttonClass">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu"  class="customize">
+    <button mat-menu-item  class="header__icon header__icon--m header__icon--v"
+            [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions] = "{exact: true}">
+      <span>Home</span>
+    </button>
+    <button mat-menu-item  class="header__icon header__icon--m header__icon--v"
+            [routerLink]="['/recipes']" routerLinkActive="active">
+      <span>Recipe</span>
+    </button>
+    <button mat-menu-item  class="header__icon header__icon--m header__icon--v"
+            [routerLink]="['/shopping-list']" routerLinkActive="active">
+      <span>Shopping List</span>
+    </button>
+  </mat-menu>
+  <div class="header__left">
+    <button mat-icon-button class="header__icon header__icon--m" aria-label="Example icon-button with menu icon"
     [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions] = "{exact: true}">
         <span>Home</span>
     </button>
@@ -11,8 +29,8 @@
     [routerLink]="['/shopping-list']" routerLinkActive="active">
         <span>Shopping List</span>
     </button>
-    <span class="header__spacer"></span>
-
+  </div>
+    <div class="header__right">
     <button mat-icon-button class="header__icon favorite-icon" aria-label="Example icon-button with heart icon"
             (click)="pageLikes()" [disabled]="clicked">
       <mat-icon>favorite</mat-icon>
@@ -21,4 +39,8 @@
     <button mat-icon-button class="header__icon" aria-label="Example icon-button with share icon">
       <mat-icon>share</mat-icon>
     </button>
+  <button mat-icon-button class="header__icon" aria-label="Example icon-button with share icon" [routerLink]="['/auth']" >
+    <span>Sign Up</span>
+  </button>
+    </div>
   </mat-toolbar>
