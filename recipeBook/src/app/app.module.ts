@@ -30,6 +30,7 @@ import {RecipeServicesService} from './recipe/recipe-services.service';
 import { GalleryService } from './hero-page/gallery.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {recipeInterceptService} from './shared/recipe-intercept.service';
+import { NotificationModule } from '@progress/kendo-angular-notification';
 
 
 
@@ -59,7 +60,8 @@ import {recipeInterceptService} from './shared/recipe-intercept.service';
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NotificationModule
   ],
   providers: [ShoppingService, RecipeServicesService, GalleryService, [{provide: HTTP_INTERCEPTORS, useClass: recipeInterceptService, multi: true}]],
   bootstrap: [AppComponent]

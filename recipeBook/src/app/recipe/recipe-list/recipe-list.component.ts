@@ -4,6 +4,7 @@ import { RecipeServicesService } from '../recipe-services.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import {firebaseService} from "../../shared/firebase.service";
+import {MessageService} from "../../shared/message.service";
 
 @Component({
   selector: 'app-recipe-list',
@@ -18,7 +19,8 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   constructor(private recipeService: RecipeServicesService,
               private router: Router,
               private route: ActivatedRoute,
-              private firebase: firebaseService) {
+              private firebase: firebaseService,
+              private message: MessageService) {
   }
 
   ngOnInit() {
@@ -38,6 +40,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
 
   onSave() {
     this.firebase.postData();
+    this.message.sendMessage('Your recipes have been successfully preserved!');
   }
 
   ngOnDestroy() {
