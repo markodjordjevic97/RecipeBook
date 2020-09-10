@@ -1,4 +1,4 @@
-import {Component,  OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {likesService} from "./likes.service";
 import {firebaseService} from "../shared/firebase.service";
 import {authService} from "../auth/auth.service";
@@ -8,24 +8,25 @@ import {Subscription} from "rxjs";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit{
-  subscription: Subscription
+export class HeaderComponent implements OnInit, OnDestroy{
+  subscription: Subscription;
   counter: number = 0;
   clicked: boolean = false;
-  buttonClass: string = 'burger-btn'
-  mode: boolean = false;
+  buttonClass: string = 'burger-btn';
+
+  isAuth =  false;
   constructor(private firebase: firebaseService,
               private likeService: likesService,
               private auth: authService) { }
 
   ngOnInit(): void {
-    if (this.mode) {
       this.firebase.fetchLikes().subscribe(num => {
         this.counter = num;
       })
-    } else {
-      //....
-    }
+
+    this.subscription = this.auth.user.subscribe(user => {
+      this.isAuth = !!user;
+    })
   }
   pageLikes() {
     this.clicked = true;
@@ -37,5 +38,12 @@ export class HeaderComponent implements OnInit{
     }
     this.likeService.addLikes(this.counter);
     this.firebase.postLikes();
+  }
+
+  SignInOut() {
+
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthResponseData, authService} from "./auth.service";
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-auth',
@@ -16,7 +17,8 @@ export class AuthComponent implements OnInit {
   error: string = null;
 
 
-  constructor(private authService: authService) { }
+  constructor(private authService: authService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.authentification = new FormGroup({
@@ -28,7 +30,6 @@ export class AuthComponent implements OnInit {
   }
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
-    this.authService.mode.next({logMode: this.isLoginMode});
   }
   onSubmit() {
     if(!this.authentification.valid) {
@@ -50,8 +51,11 @@ export class AuthComponent implements OnInit {
 
     authObs.subscribe(
               resData => {
-            this.isLoading = false;
+                console.log(resData);
+                 this.isLoading = false;
+                this.router.navigate(['recipes']);
           }, errorMessage => {
+                console.log(errorMessage);
             this.error = errorMessage;
             this.isLoading = false;
           });

@@ -22,25 +22,25 @@
         <span>Home</span>
     </button>
     <button mat-icon-button class="header__icon header__icon--m" aria-label="Example icon-button with menu icon"
-    [routerLink]="['/recipes']" routerLinkActive="active">
+    [routerLink]="['/recipes']" routerLinkActive="active" *ngIf="isAuth">
         <span>Recipe</span>
     </button>
     <button mat-icon-button class="header__icon header__icon--m" aria-label="Example icon-button with menu icon"
-    [routerLink]="['/shopping-list']" routerLinkActive="active">
+    [routerLink]="['/shopping-list']" routerLinkActive="active" *ngIf="isAuth">
         <span>Shopping List</span>
     </button>
   </div>
     <div class="header__right">
     <button mat-icon-button class="header__icon favorite-icon" aria-label="Example icon-button with heart icon"
-            (click)="pageLikes()" [disabled]="clicked">
+            (click)="pageLikes()" [disabled]="clicked" *ngIf="isAuth">
       <mat-icon>favorite</mat-icon>
     </button>
-    <span class="header__icon-likes" *ngIf="counter > 0">{{counter}}</span>
+    <span class="header__icon-likes" *ngIf="counter > 0">{{counter}}  {{isAuth ? null : 'people like this...'}}</span>
     <button mat-icon-button class="header__icon" aria-label="Example icon-button with share icon">
       <mat-icon>share</mat-icon>
     </button>
   <button mat-icon-button class="header__icon" aria-label="Example icon-button with share icon" [routerLink]="['/auth']" >
-    <span>Sign Up</span>
+    <span (click)="SignInOut()">{{isAuth ? 'LogOut' : 'SignUp'}}</span>
   </button>
     </div>
   </mat-toolbar>

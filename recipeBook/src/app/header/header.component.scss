@@ -7,36 +7,15 @@
     display: flex;
   align-items: center;
   &__left {
-  flex:.9 1 auto;
-    @media only screen and (max-width: 58.125em){
-      flex: .7 1 auto;
-    }
-    @media only screen and (max-width: 33.125em){
-      flex: .5 1 auto;
-    }
-    @media only screen and (max-width: 29.375em){
-      flex: .3 1 auto;
-      margin-right: -1rem;
-    }
-    @media only screen and (max-width: 27.375em){
-      margin-right: -5rem;
-      flex: 0;
-      width: 0;
-    }
-    @media only screen and (max-width: 23.4375em){
-      margin-right: -8rem;
-    }
-    @media only screen and (max-width: 22.5em){
-      margin-right: -9.5rem;
-    }
+  flex: .9 1 auto;
+  @media only screen and (max-width: 25.875em){
+    flex: .7 1 auto;
+  }
   }
   &__right {
-    @media only screen and (max-width: 27.375em){
-      flex: 1 1 auto;
-    }
   }
     &__icon {
-        font-size: 2rem;
+        font-size: 1.85rem;
         min-width: max-content;
         border-radius: 0;
         padding: 0 1.5rem;
@@ -56,12 +35,14 @@
         &-likes {
           margin: .3rem 1rem 0 -.7rem;
           color: rgba(238, 238, 234, 0.91);
+          font-size: 1.85rem;
       }
 
     }
   .favorite-icon{
     color: #ec0635;
     animation: pulse 1s infinite;
+    margin-left: -7rem;
   }
 
 
