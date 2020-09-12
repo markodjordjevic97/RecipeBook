@@ -36,11 +36,12 @@
       <mat-icon>favorite</mat-icon>
     </button>
     <span class="header__icon-likes" *ngIf="counter > 0">{{counter}}  {{isAuth ? null : 'people like this...'}}</span>
-    <button mat-icon-button class="header__icon" aria-label="Example icon-button with share icon">
+
+    <button mat-icon-button class="header__icon loginAuthentification" aria-label="Example icon-button with share icon">
       <mat-icon>share</mat-icon>
     </button>
   <button mat-icon-button class="header__icon" aria-label="Example icon-button with share icon" [routerLink]="['/auth']" >
-    <span (click)="SignInOut()">{{isAuth ? 'LogOut' : 'SignUp'}}</span>
+    <span (click)="SignInOut()" >{{isAuth ? 'LogOut' : 'SignUp'}}</span>
   </button>
     </div>
   </mat-toolbar>

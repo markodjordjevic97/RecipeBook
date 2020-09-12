@@ -4,7 +4,7 @@
     <button class="error__btn" [routerLink]="['/']">&#8592; main page</button>
   </div>
   <div *ngIf="isLoading">
-    <app-loading-spiner></app-loading-spiner>
+    <app-loading-spinner></app-loading-spinner>
   </div>
   <form class="form" [formGroup]="authentification" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
     <a [routerLink]="['/']" class="form__close"><span >&#10008;</span></a>
@@ -19,7 +19,7 @@
       <input type="password"  matInput placeholder="Password*" formControlName="password">
       <mat-icon matSuffix>{{isLoginMode ? 'brush' : 'sentiment_very_satisfied'}}</mat-icon>
     </mat-form-field>
-    <button class="form__btn" mat-raised-button color="red" type="submit" [disabled]="!authentification.valid">{{isLoginMode ? 'Login' : 'Sign Up'}}</button>
-    <button mat-raised-button class="switchbtn"  color="basic" type="button" (click)="onSwitchMode()">{{isLoginMode ? 'Switch to SignUp!' : 'Switch to LogIn'}}</button>
+    <button class="form__btn" mat-raised-button color="red" type="submit" [disabled]="!authentification.valid">{{isLoginMode ? 'Login' : 'Create Account'}}</button>
+    <button mat-raised-button class="switchbtn"  color="basic" type="button" (click)="onSwitchMode()">{{isLoginMode ? 'Switch to Create Account!' : 'Switch to LogIn'}}</button>
   </form>
 </div>

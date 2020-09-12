@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {NotificationService} from "@progress/kendo-angular-notification";
 import {MessageService} from "./shared/message.service";
+import {authService} from "./auth/auth.service";
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ export class AppComponent implements OnInit, OnDestroy{
   subscription: Subscription;
   private hideAfter: number = 2000;
   constructor(private messageService: MessageService,
-              private notification: NotificationService) {
+              private notification: NotificationService,
+              private auth: authService) {
   }
   ngOnInit(): void {
     this.subscription = this.messageService.getMessage().subscribe(messageGet =>{
@@ -31,7 +33,7 @@ export class AppComponent implements OnInit, OnDestroy{
         else
           this.message = [];
     })
-
+  this.auth.autoLogin();
   }
 
   ngOnDestroy(): void {

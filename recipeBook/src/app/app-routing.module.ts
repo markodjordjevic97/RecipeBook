@@ -1,31 +1,18 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HeroPageComponent } from './hero-page/hero-page.component';
-import { RecipeComponent } from './recipe/recipe.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { RecipeStartComponent } from './recipe/recipe-start/recipe-start.component';
-import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.component';
-import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component';
-import {recipeResolverService} from "./shared/recipe-resolver.service";
-import {shoppingListResolverService} from "./shared/shoppingList-resolver.service";
-import {AuthComponent} from "./auth/auth.component";
-
+import {NgModule} from "@angular/core";
+import {PreloadAllModules, RouterModule, Routes} from "@angular/router";
+import {HeroPageComponent} from "./hero-page/hero-page.component";
 
 const routes: Routes = [
   {path: '', component: HeroPageComponent},
-  {path: 'recipes', component: RecipeComponent, resolve: {res: recipeResolverService},  children: [
-    {path: '', component: RecipeStartComponent},
-    {path: 'new', component: RecipeEditComponent},
-    {path: ':id', component: RecipeDetailComponent},
-    {path: ':id/edit',  component: RecipeEditComponent}
+  {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
+  {path: 'recipes', loadChildren: () => import('./recipe/recipe.module').then(m => m.RecipeModule)},
+  {path: 'shopping-list', loadChildren: () => import('./shopping-list/shopping.module').then(m => m.ShoppingModule) }
 
-  ]},
-  {path: 'shopping-list', component: ShoppingListComponent, resolve: {res: shoppingListResolverService}},
-  {path: 'auth', component: AuthComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+
+export class AppRoutingModule {}

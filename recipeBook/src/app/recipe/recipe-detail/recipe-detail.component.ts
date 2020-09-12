@@ -3,7 +3,6 @@ import { Recipe } from '../recipe.model';
 import { RecipeServicesService } from '../recipe-services.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
-import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
@@ -26,7 +25,7 @@ export class RecipeDetailComponent implements OnInit{
           this.recipe = this.recipeService.getRecipe(this.id);
         }
       );
-      
+
   }
 
   onEditRecipe() {

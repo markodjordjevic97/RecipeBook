@@ -47,6 +47,16 @@
 
 
 }
+.facebookLogin {
+  //visibility: hidden;
+  //opacity: 0;
+}
+.loginAuthentification:hover {
+
+}
+
+
+
 
 ::ng-deep .burger-btn {
   visibility: hidden;
@@ -63,6 +73,10 @@
   font-weight: bold;
   width: 100%;
 }
+
+
+
+
 @media only screen and (max-width: 64em) {
   .burger-btn {
     visibility: visible;

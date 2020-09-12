@@ -1,12 +1,11 @@
 import {Injectable} from "@angular/core";
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {RecipeServicesService} from "../recipe/recipe-services.service";
-import {exhaustMap, map, take, tap} from "rxjs/operators";
+import { map, tap} from "rxjs/operators";
 import {Recipe} from "../recipe/recipe.model";
 import {ShoppingService} from "../shopping-list/shopping.service";
 import {Ingredient} from "./ingredient.model";
 import {likesService} from "../header/likes.service";
-import {authService} from "../auth/auth.service";
 
 
 @Injectable({
@@ -18,8 +17,7 @@ export class firebaseService {
   constructor(private http: HttpClient,
               private recipeService: RecipeServicesService,
               private ingredientsService: ShoppingService,
-              private likes: likesService,
-              private authService: authService) {
+              private likes: likesService) {
   }
 
   postData() {

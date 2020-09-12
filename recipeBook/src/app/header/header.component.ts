@@ -1,13 +1,15 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, NgModule, OnDestroy, OnInit} from '@angular/core';
 import {likesService} from "./likes.service";
 import {firebaseService} from "../shared/firebase.service";
 import {authService} from "../auth/auth.service";
 import {Subscription} from "rxjs";
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
+
 export class HeaderComponent implements OnInit, OnDestroy{
   subscription: Subscription;
   counter: number = 0;
@@ -17,14 +19,14 @@ export class HeaderComponent implements OnInit, OnDestroy{
   isAuth =  false;
   constructor(private firebase: firebaseService,
               private likeService: likesService,
-              private auth: authService) { }
+              private authet: authService) { }
 
   ngOnInit(): void {
       this.firebase.fetchLikes().subscribe(num => {
         this.counter = num;
       })
 
-    this.subscription = this.auth.user.subscribe(user => {
+    this.subscription = this.authet.user.subscribe(user => {
       this.isAuth = !!user;
     })
   }
@@ -41,9 +43,13 @@ export class HeaderComponent implements OnInit, OnDestroy{
   }
 
   SignInOut() {
-
+    if(this.isAuth){
+    this.authet.logout();
+    }
   }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 }
+

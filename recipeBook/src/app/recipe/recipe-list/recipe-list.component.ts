@@ -14,8 +14,7 @@ import {MessageService} from "../../shared/message.service";
 export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[];
   subscription: Subscription;
-  searchText = '';
-  datum = new Date();
+
   constructor(private recipeService: RecipeServicesService,
               private router: Router,
               private route: ActivatedRoute,

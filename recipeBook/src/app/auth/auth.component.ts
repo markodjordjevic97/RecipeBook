@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthResponseData, authService} from "./auth.service";
 import {Observable} from "rxjs";
@@ -16,7 +16,6 @@ export class AuthComponent implements OnInit {
   isLoading: boolean = false;
   error: string = null;
 
-
   constructor(private authService: authService,
               private router: Router) { }
 
@@ -28,6 +27,7 @@ export class AuthComponent implements OnInit {
     })
 
   }
+
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
   }
@@ -51,11 +51,9 @@ export class AuthComponent implements OnInit {
 
     authObs.subscribe(
               resData => {
-                console.log(resData);
                  this.isLoading = false;
                 this.router.navigate(['recipes']);
           }, errorMessage => {
-                console.log(errorMessage);
             this.error = errorMessage;
             this.isLoading = false;
           });
