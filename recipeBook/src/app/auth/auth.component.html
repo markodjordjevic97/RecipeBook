@@ -4,7 +4,7 @@
     <button class="error__btn" [routerLink]="['/']">&#8592; main page</button>
   </div>
   <div *ngIf="isLoading">
-    <app-loading-spinner></app-loading-spinner>
+    <app-loading-spiner></app-loading-spiner>
   </div>
   <form class="form" [formGroup]="authentification" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
     <a [routerLink]="['/']" class="form__close"><span >&#10008;</span></a>

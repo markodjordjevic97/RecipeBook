@@ -28,7 +28,7 @@
     "@progress/kendo-angular-notification": "^2.1.1",
     "@progress/kendo-theme-default": "latest",
     "bootstrap": "^4.5.2",
-    "firebase": "^7.20.0",
+    "firebase": "^7.21.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
