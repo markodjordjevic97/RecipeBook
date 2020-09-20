@@ -12,12 +12,12 @@
     <mat-form-field appearance="outline" class="form__email">
       <mat-label>Email*</mat-label>
       <input  type="email" matInput placeholder="Email*" class="email" formControlName="email">
-      <mat-icon matSuffix>{{isLoginMode ? 'brush' : 'sentiment_very_satisfied'}}</mat-icon>
+      <mat-icon matSuffix>{{isLoginMode ? '' : ''}}</mat-icon>
     </mat-form-field>
     <mat-form-field appearance="outline" class="form__password">
       <mat-label>Password*</mat-label>
-      <input type="password"  matInput placeholder="Password*" formControlName="password">
-      <mat-icon matSuffix>{{isLoginMode ? 'brush' : 'sentiment_very_satisfied'}}</mat-icon>
+      <input [type]="isPassword ? 'password' : 'text'"  matInput placeholder="Password*" formControlName="password">
+      <mat-icon matSuffix (click)="isPassword = !isPassword" style="cursor: pointer">{{isPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
     </mat-form-field>
     <button class="form__btn" mat-raised-button color="red" type="submit" [disabled]="!authentification.valid">{{isLoginMode ? 'Login' : 'Create Account'}}</button>
     <button mat-raised-button class="switchbtn"  color="basic" type="button" (click)="onSwitchMode()">{{isLoginMode ? 'Switch to Create Account!' : 'Switch to LogIn'}}</button>

@@ -1,11 +1,11 @@
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {RecipeServicesService} from "../recipe/recipe-services.service";
-import { map, tap} from "rxjs/operators";
-import {Recipe} from "../recipe/recipe.model";
-import {ShoppingService} from "../shopping-list/shopping.service";
-import {Ingredient} from "./ingredient.model";
-import {likesService} from "../header/likes.service";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {RecipeServicesService} from '../recipe/recipe-services.service';
+import { map, tap} from 'rxjs/operators';
+import {Recipe} from '../recipe/recipe.model';
+import {ShoppingService} from '../shopping-list/shopping.service';
+import {Ingredient} from './ingredient.model';
+import {likesService} from '../header/likes.service';
 
 
 @Injectable({
@@ -33,12 +33,12 @@ export class firebaseService {
       ).pipe(
      map(recipes => {
         return recipes.map(recipe => {
-          return {ingredients: recipe.ingredients ? recipe.ingredients : [], ...recipe}
-        })
+          return {ingredients: recipe.ingredients ? recipe.ingredients : [], ...recipe};
+        });
       }),
       tap(recipes => {
         this.recipeService.setRecipes(recipes);
-      }))
+      }));
   }
 
   postListIngredients() {
@@ -47,7 +47,7 @@ export class firebaseService {
       'https://recipebook-2020.firebaseio.com/ingredients.json', ingredients
     ).subscribe();
   }
-  //setIngredients
+  // setIngredients
   fetchListIngredients() {
   return this.http.get<Ingredient[]>(
     'https://recipebook-2020.firebaseio.com/ingredients.json'
@@ -55,7 +55,7 @@ export class firebaseService {
     tap(ingredients => {
       this.ingredientsService.setIngredients(ingredients);
     })
-  )
+  );
   }
 
   postLikes() {
@@ -67,7 +67,7 @@ export class firebaseService {
     return this.http.get<number>('https://recipebook-2020.firebaseio.com/likes.json')
                     .pipe(tap(num => {
                       this.likes.setLikes(num);
-                    }))
+                    }));
 
   }
 }
