@@ -3,6 +3,8 @@ import {Subscription} from 'rxjs';
 import {NotificationService} from '@progress/kendo-angular-notification';
 import {MessageService} from './shared/message.service';
 import {authService} from './auth/auth.service';
+import {Ingredient} from "./shared/ingredient.model";
+import {firebaseService} from "./shared/firebase.service";
 
 @Component({
   selector: 'app-root',
@@ -11,12 +13,17 @@ import {authService} from './auth/auth.service';
 })
 export class AppComponent implements OnInit, OnDestroy{
 
+  ing: Ingredient[] = [
+    new Ingredient('Orangina', 10)
+  ];
+
   message: any[] = [];
   subscription: Subscription;
   private hideAfter = 2000;
   constructor(private messageService: MessageService,
               private notification: NotificationService,
-              private auth: authService) {
+              private auth: authService,
+              private shopp: firebaseService) {
   }
   ngOnInit(): void {
     this.subscription = this.messageService.getMessage().subscribe(messageGet => {
@@ -34,6 +41,7 @@ export class AppComponent implements OnInit, OnDestroy{
         }
     });
     this.auth.autoLogin();
+    this.shopp.postListIngredients();
   }
 
   ngOnDestroy(): void {

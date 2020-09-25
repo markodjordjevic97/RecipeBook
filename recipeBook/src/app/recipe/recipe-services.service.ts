@@ -10,7 +10,14 @@ import { ShoppingService } from '../shopping-list/shopping.service';
 export class RecipeServicesService {
   recipesChanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [];
+  private recipes: Recipe[] = [
+    new Recipe(
+      'Coctail kiwi',
+      'Refreshing kiwi cocktail from Vranje',
+      'https://cdn.pixabay.com/photo/2016/06/10/11/55/kiwi-coctail-1447939_960_720.jpg',
+      [new Ingredient('Kiwi', 5)]
+    )
+  ];
 
   constructor(private slService: ShoppingService) {}
 
