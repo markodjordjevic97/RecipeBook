@@ -24,7 +24,7 @@ export class firebaseService {
     const recipes = this.recipeService.getRecipes();
     this.http.put<{key: string}>(
       'https://recipebook2020-f59f3.firebaseio.com/recipes.json',
-      recipes).subscribe();
+      recipes).subscribe();   // posto je http = Observables, kad osetis promennu neku, ti subscribe() podeli informacije na definisani server
   }
 
   fetchData() {
